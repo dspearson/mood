@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script src="/Chart.js"></script>
+        <title>Mood Chart</title>
+    </head>
+    <body>
+
+	      <div style="width:75%;">
+		        <canvas id="myChart"></canvas>
+	      </div>
+
+        <script>
+         var ctx = document.getElementById("myChart");
+         var myChart = new Chart(ctx, {
+             type: 'line',
+             data: {
+                 labels: {{labels|safe}},
+                 datasets: [{
+                     label: 'Mood',
+					           backgroundColor: window.chartColors.red,
+					           borderColor: window.chartColors.red,
+                     data: {{data|safe}},
+                     fill: false,
+                 }],
+             },
+             options: {
+				         responsive: true,
+				         title: {
+					           display: true,
+					           text: 'Mood Chart'
+				         },
+				         tooltips: {
+					           mode: 'index',
+					           intersect: false,
+				         },
+				         hover: {
+					           mode: 'nearest',
+					           intersect: true
+				         },
+				         scales: {
+					           xAxes: [{
+						             display: true,
+						             scaleLabel: {
+							               display: true,
+							               labelString: 'Date'
+						             }
+					           }],
+					           yAxes: [{
+						             display: true,
+						             scaleLabel: {
+							               display: true,
+							               labelString: 'Mood'
+						             },
+                         ticks: {
+                             beginAtZero:true,
+                             max:10
+					               }}]
+				         }
+             }
+         });
+
+		     var colorNames = Object.keys(window.chartColors);
+        </script>
+
+    </body>
+</html>

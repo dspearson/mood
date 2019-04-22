@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Mood HQ</title>
+        <style>
+         textarea { font-size: 24px; }
+        </style>
+    </head>
+    <body>
+        <center>
+        <p>
+            <form action="/mood/amend?row={{row}}&k={{k}}" method="post">
+                <textarea name="comments" rows="20" cols="50">
+                </textarea>
+                <br />
+                <br />
+                <input type="submit" name="submit" style="height:200px;width:700px">
+            </form>
+        </p>
+        </center>
+    </body>
+</html>
